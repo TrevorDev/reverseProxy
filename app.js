@@ -1,20 +1,29 @@
+routes = {
+     'swiftnifty.trevordev.com': 3007,
+     'blockfighter.trevordev.com': 3006,
+     'niftykick.trevordev.com': 3005,
+     'stockbrain.trevordev.com': 3004,
+     'trevordev.com': 3003,
+     'jokeydoke.com': 3002,
+     'chatleap.com': 3001
+}
+
 var httpProxy = require('http-proxy');
 
+var makeRoutes = function(routes, all){
+    var newRoutes = {}
+    for(key in routes){
+        newRoutes[key] = 'localhost:'+routes[key];
+        newRoutes['www.'+key] = 'localhost:'+routes[key];
+    }
+    if(all){
+        newRoutes['.*']='localhost:'+all;
+    }
+    return newRoutes;
+}
+
 var server = httpProxy.createServer({
-   router: {
-     'niftykick.trevordev.com': 'localhost:3005',
-     'www.niftykick.trevordev.com': 'localhost:8888',
-     'www.stockbrain.trevordev.com': 'localhost:3004',
-     'stockbrain.trevordev.com': 'localhost:3004',
-     '192.241.174.150': 'localhost:3002',
-     'trevordev.com': 'localhost:3003',
-     'www.trevordev.com': 'localhost:3003',
-     'jokeydoke.com': 'localhost:3002',
-     'www.jokeydoke.com': 'localhost:3002',
-     'chatleap.com': 'localhost:3001',
-     'www.chatleap.com': 'localhost:3001',
-     '.*': 'localhost:3000'
-   }
+   router: makeRoutes(routes,3000)
 });
 
 server.listen(80);
