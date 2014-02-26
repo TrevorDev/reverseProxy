@@ -3,7 +3,7 @@ var httpProxy = require('http-proxy');
 var server = httpProxy.createServer({
    router: {
      'niftykick.trevordev.com': 'localhost:3005',
-     'www.niftykick.trevordev.com': 'localhost:3005',
+     'www.niftykick.trevordev.com': 'localhost:8888',
      'www.stockbrain.trevordev.com': 'localhost:3004',
      'stockbrain.trevordev.com': 'localhost:3004',
      '192.241.174.150': 'localhost:3002',
