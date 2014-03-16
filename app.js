@@ -2,6 +2,7 @@ routes = {
      'swiftnifty.trevordev.com': 3007,
      'blockfighter.trevordev.com': 3006,
      'niftykick.trevordev.com': 3005,
+     'niftykick.com': 3005,
      'stockbrain.trevordev.com': 3004,
      'trevordev.com': 3003,
      'jokeydoke.com': 3002,
